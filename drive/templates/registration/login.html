@@ -1,0 +1,42 @@
+{% extends 'registration/base.html' %} {% block content %}
+<div class="container mx-auto">
+    <h2 class="text-white text-3xl font-bold">Login</h2>
+    <!-- a form with a cloudy style -->
+    <form method="POST" class="gap-4 font-semibold space-y-3 lg:max-w-[30%]">
+        {% csrf_token %}
+        <div class="flex flex-col gap-2">
+            <label for="id_username" class="">Username:</label>
+            <input
+                class="rounded-md border-2 border-gray-300 p-1 focus:outline-none focus:border-blue-500"
+                type="text"
+                name="username"
+                id="id_username"
+            />
+        </div>
+        <div class="flex flex-col gap-2">
+            <label for="id_password" class="">Password:</label>
+            <input
+                class="rounded-md border-2 border-gray-300 p-1 focus:outline-none focus:border-blue-500"
+                type="password"
+                name="password"
+                id="id_password"
+            />
+        </div>
+
+        <button
+            type="submit"
+            class="bg-white text-blue-500 px-3 py-2 rounded-md flex items-center gap-1 hover:bg-blue-600 hover:text-white hover:shadow-md"
+        >
+            <span class="material-symbols-outlined"> login </span>
+            Login
+        </button>
+    </form>
+    <p>
+        Don't have an account?
+        <a href="{% url 'signup' %}" class="underline hover:text-blue-600"
+            >Sign up here!</a
+        >
+    </p>
+</div>
+
+{% endblock %}
